@@ -1,0 +1,116 @@
+{
+  "seed": [
+    {
+      "id": "ad27e265-9605-4b4b-a0e5-3003ea9cc4dc",
+      "organisation_id": "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
+      "type": "accounts",
+      "version": 0,
+      "attributes": {
+        "account_classification": "Personal",
+        "account_matching_opt_out": false,
+        "account_number": "414268190",
+        "alternative_names": [
+          "prince ta3aleb"
+        ],
+        "bank_id": "400300",
+        "bank_id_code": "DEBLZ",
+        "base_currency": "GBP",
+        "bic": "NWBKGB22",
+        "country": "DE",
+        "iban": "DE11NWBK40030041426818",
+        "joint_account": false,
+        "name": [
+          "Mr. Smith"
+        ],
+        "secondary_identification": "A1B2C3D4",
+        "status": "confirmed",
+        "switched": false
+      }
+    }
+  ],
+  "toCreate": [
+    {
+      "id": "ab6d05a8-8d41-4957-833e-fcc42126351b",
+      "organisation_id": "634e3a41-26b8-49f9-a23d-26fa92061f38",
+      "type": "accounts",
+      "version": 0,
+      "attributes": {
+        "account_classification": "Personal",
+        "account_matching_opt_out": false,
+        "account_number": "414268190",
+        "alternative_names": [
+          "prince ta3aleb"
+        ],
+        "bank_id": "400300",
+        "bank_id_code": "DEBLZ",
+        "base_currency": "GBP",
+        "bic": "NWBKGB22",
+        "country": "DE",
+        "iban": "DE11NWBK40030041426818",
+        "joint_account": false,
+        "name": [
+          "Mr. Smith"
+        ],
+        "secondary_identification": "A1B2C3D4",
+        "status": "confirmed",
+        "switched": false
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "id": "invalid_uuid",
+      "organisation_id": "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
+      "type": "accounts",
+      "version": 0,
+      "attributes": {
+        "account_classification": "Personal",
+        "account_matching_opt_out": false,
+        "account_number": "414268190",
+        "alternative_names": [
+          "prince ta3aleb"
+        ],
+        "bank_id": "400300",
+        "bank_id_code": "DEBLZ",
+        "base_currency": "GBP",
+        "bic": "COMBDE22",
+        "country": "DE",
+        "iban": "DE11NWBK40030041426818",
+        "joint_account": false,
+        "name": [
+          "Mr. Smith"
+        ],
+        "secondary_identification": "A1B2C3D4",
+        "status": "confirmed",
+        "switched": false
+      }
+    },
+    {
+      "id": "ad27e265-9605-4b4b-a0e5-3003ea9cc4dc",
+      "organisation_id": "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
+      "type": "accounts",
+      "version": 0,
+      "attributes": {
+        "account_classification": "Personal",
+        "account_matching_opt_out": false,
+        "account_number": "414268190",
+        "alternative_names": [
+          "prince ta3aleb"
+        ],
+        "bank_id": "400300",
+        "bank_id_code": "DEBLZ",
+        "base_currency": "GBP",
+        "bic": "NWBKGB22",
+        "country": "DE",
+        "iban": "DE11NWBK40030041426818",
+        "joint_account": false,
+        "name": [
+          "Mr. Smith"
+        ],
+        "secondary_identification": "A1B2C3D4",
+        "status": "confirmed",
+        "switched": false
+      }
+    }
+  ]
+}

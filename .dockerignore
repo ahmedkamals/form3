@@ -1,0 +1,31 @@
+.git/
+*.md
+LICENSE
+NOTICE
+MAINTAINERS
+.mailmap
+
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, deploy with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+.editorconfig
+.idea/
+.artifacts/
+.data/
+.env
+.go
+.docker*
+*.iml
+*.log
+.github/
+.githooks/
+.circleci/

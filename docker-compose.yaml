@@ -1,0 +1,75 @@
+version: '3.9'
+
+services:
+  accountapi:
+    image: form3tech/interview-accountapi:v1.0.0-39-gef7db03d
+    restart: on-failure
+    depends_on:
+      - postgresql
+      - vault
+    environment:
+      - VAULT_ADDR=http://vault:8200
+      - VAULT_TOKEN=8fb95528-57c6-422e-9722-d2147bcba8ed
+      - PSQL_USER=root
+      - PSQL_PASSWORD=password
+      - PSQL_HOST=postgresql
+      - PSQL_PORT=5432
+      - STACK_NAME=f3-interview-accountapi
+      - DATABASE-HOST=postgresql
+      - DATABASE-SSL-MODE=disable
+      - DATABASE-USERNAME=interview_accountapi_user
+      - DATABASE-PASSWORD=123
+    networks:
+      - backend
+    ports:
+      - "8080:8080"
+
+  api-client:
+    build:
+      args:
+        ALPINE_VERSION: ${ALPINE_VERSION}
+        GO_VERSION: ${GO_VERSION}
+        MAINTAINER_NAME: ${MAINTAINER_NAME}
+        MAINTAINER_EMAIL: ${MAINTAINER_EMAIL}
+        API_ENDPOINT: ${API_ENDPOINT}
+        FIXTURES_PATH: ${FIXTURES_PATH}
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      make unit
+    depends_on:
+      - accountapi
+    env_file:
+      - .env
+    networks:
+      - backend
+    volumes:
+      - ./:/app
+
+  postgresql:
+    image: postgres:14.0-alpine${ALPINE_VERSION}
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+    networks:
+      - backend
+    restart: always
+    volumes:
+      - ./scripts/db:/docker-entrypoint-initdb.d/
+
+  vault:
+    image: vault:1.8.4
+    environment:
+      - SKIP_SETCAP=1
+      - VAULT_DEV_ROOT_TOKEN_ID=8fb95528-57c6-422e-9722-d2147bcba8ed
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
