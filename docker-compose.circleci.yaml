@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  api-client:
+    image: ahmedkamal/form3-api-client:v1.0.0-39-gef7db03d
+    container_name: api-client
+    build:
+      args:
+        ALPINE_VERSION: ${ALPINE_VERSION}
+        GO_VERSION: ${GO_VERSION}
+        MAINTAINER_NAME: ${MAINTAINER_NAME}
+        MAINTAINER_EMAIL: ${MAINTAINER_EMAIL}
+        API_ENDPOINT: ${API_ENDPOINT}
+        FIXTURES_PATH: ${FIXTURES_PATH}
+      context: .
+      dockerfile: ./.circleci/Dockerfile
+    command: >
+      bash -c "if [ \"${COVERAGE}\" == \"true\" ]; then make coverage-html || true ; else echo 'skipping sending coverage.'; make unit; fi"
+    depends_on:
+      - accountapi
+    env_file:
+      - .env
+    networks:
+      - backend

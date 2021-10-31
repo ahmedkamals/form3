@@ -27,9 +27,6 @@ RUN set -eux              \
         curl              \
         git               \
         make              \
-    ;
-
-FROM buidler as production
-FROM builder as development
-
-RUN make mods-download
+    ;                     \
+    make mods-download    \
+    ; \

@@ -24,28 +24,6 @@ services:
     ports:
       - "8080:8080"
 
-  api-client:
-    build:
-      args:
-        ALPINE_VERSION: ${ALPINE_VERSION}
-        GO_VERSION: ${GO_VERSION}
-        MAINTAINER_NAME: ${MAINTAINER_NAME}
-        MAINTAINER_EMAIL: ${MAINTAINER_EMAIL}
-        API_ENDPOINT: ${API_ENDPOINT}
-        FIXTURES_PATH: ${FIXTURES_PATH}
-      context: .
-      dockerfile: Dockerfile
-    command: >
-      make unit
-    depends_on:
-      - accountapi
-    env_file:
-      - .env
-    networks:
-      - backend
-    volumes:
-      - ./:/app
-
   postgresql:
     image: postgres:14.0-alpine${ALPINE_VERSION}
     healthcheck:
