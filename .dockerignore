@@ -22,7 +22,6 @@ MAINTAINERS
 .artifacts/
 .data/
 .env
-.go
 .docker*
 *.iml
 *.log
